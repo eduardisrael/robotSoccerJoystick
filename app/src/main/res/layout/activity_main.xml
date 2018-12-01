@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/mTitleLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:text="Motor-L" />
+
+
+    <TextView
+        android:id="@+id/textView_angle_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_below="@+id/mTitleLeft"
+        android:text="0°"/>
+
+
+    <TextView
+        android:id="@+id/textView_strength_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_below="@+id/textView_angle_left"
+        android:text="Velocidad: 0%"/>
+
+
+    <TextView
+        android:id="@+id/textView_coordinate_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_below="@+id/textView_strength_left"
+        android:text="50:50"/>
+
+    <Button
+        android:id="@+id/btnOpcion"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="@android:drawable/editbox_background_normal"
+        android:text="Mensaje/servidor"
+        android:textColor="#000000" />
+
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/joystickView_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="false"
+        android:layout_marginTop="60dp"
+        custom:JV_borderWidth="3dp"
+        custom:JV_backgroundColor="#FFFFFF"
+        custom:JV_borderColor="#424242"
+        custom:JV_buttonColor="#424242"/>
+
+
+    <TextView
+        android:id="@+id/mTitleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Motor-R" />
+
+   <TextView
+       android:id="@+id/textView_angle_right"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_below="@+id/mTitleRight"
+       android:text="0°"/>
+
+
+   <TextView
+       android:id="@+id/textView_strength_right"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_below="@+id/textView_angle_right"
+       android:text="Velocidad: 0%"/>
+
+
+   <TextView
+       android:id="@+id/textView_coordinate_right"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_below="@+id/textView_strength_right"
+       android:text="50:50"/>
+
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+       xmlns:custom="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/joystickView_right"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_alignParentRight="true"
+       android:layout_marginTop="60dp"
+       custom:JV_borderWidth="3dp"
+       custom:JV_backgroundColor="#FFFFFF"
+       custom:JV_borderColor="#424242"
+       custom:JV_buttonColor="#424242"/>
+
+
+</RelativeLayout>
+
