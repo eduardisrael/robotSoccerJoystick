@@ -8,5 +8,7 @@ Permite controlar por medio de una implementación que controla dos variables, e
 Tipo de Locomoción diferencial: El cambio de dirección se realiza modificando la velocidad relativa de las ruedas a 
 Izquierda y Derecha.
 
+![Scheme](./img.png) 
+
 # Comunidad Fun Python Ecuador
 https://github.com/FunPythonEC/Robot_soccer
