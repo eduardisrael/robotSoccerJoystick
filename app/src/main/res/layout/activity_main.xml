@@ -115,6 +115,18 @@
        custom:JV_borderColor="#424242"
        custom:JV_buttonColor="#424242"/>
 
+    <Button
+        android:id="@+id/btnBall"
+        android:layout_width="82dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="43dp"
+        android:layout_toStartOf="@+id/joystickView_right"
+        android:layout_toEndOf="@+id/joystickView_left"
+        android:text="gol" />
+
 
 </RelativeLayout>
 

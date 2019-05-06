@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.israel.pruebanueva">
+    package="com.example.israel.robotSoccerJoystick">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.israel.robotSoccerJoystick.MainActivity"
             android:screenOrientation="landscape">
             >
             <intent-filter>
@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TCP"
-            android:screenOrientation="portrait"></activity>
+            android:name="com.example.israel.robotSoccerJoystick.Option"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

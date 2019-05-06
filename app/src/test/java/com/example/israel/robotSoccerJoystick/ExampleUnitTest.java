@@ -1,4 +1,4 @@
-package com.example.israel.pruebanueva;
+package com.example.israel.robotSoccerJoystick;
 
 import org.junit.Test;
 

@@ -1,20 +1,20 @@
-package com.example.israel.pruebanueva;
+package com.example.israel.robotSoccerJoystick;
 
+import io.github.controlwear.virtual.joystick.android.JoystickView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-import io.github.controlwear.virtual.joystick.android.JoystickView;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnOpciones;
+    private Button btnDisparador;
 
 
     private TextView mTitleRight;
@@ -36,13 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //joystick R
 
         mTextViewAngleRight = (TextView) findViewById(R.id.textView_angle_right);
         mTextViewStrengthRight = (TextView) findViewById(R.id.textView_strength_right);
         mTextViewCoordinateRight = findViewById(R.id.textView_coordinate_right);
-
 
 
         //metodos
@@ -54,46 +52,33 @@ public class MainActivity extends AppCompatActivity {
 
                 mTextViewAngleRight.setText(angle + "°");
                 //mTextViewStrengthRight.setText(strength + "%"); //velocidad, 101-200 adelante, 100 apagado, 99-0 reversa
-                //realizar validaciones con respecto al angulo
 
                 if(angle>=0 && angle<=180){ //parte superior
                     rightV = String.valueOf(strength +100);
                     mTextViewStrengthRight.setText(strength+100 + "%");
-                    System.out.println("240/"+leftV+"/"+rightV+"/0/"+"247");
-
-                    /*
-                    //validacion iguales
-                    if(leftV==rightV){
-                        System.out.println("iguales");
+                    if(angle>60 && angle<120) {
+                        System.out.println("240/" + leftV + "/" + rightV + "/0/" + "247");
+                        sendMessage("240/" + leftV + "/" + rightV + "/0/" + "247");
                     }
-                    else{
-                        sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");
+                    else {
+                        System.out.println("240/" + 100 + "/" + 100 + "/0/" + "247");
+                        sendMessage("240/" + 100 + "/" + 100 + "/0/" + "247");
                     }
-                    */
-                    //original
-                    sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");
 
-
-                    //Obtener valor
-                    //----funcional sendMessage(mTextViewStrengthRight.getText().toString().replace("%",""));
-                    //sendMessage(mTextViewStrengthRight.getText().toString());
                 }
-                else{ //parte inferior
+                else { //parte inferior
                     rightV = String.valueOf(-strength+100);
                     mTextViewStrengthRight.setText(-strength+100 + "%");
-                    System.out.println("240/"+leftV+"/"+rightV+"/0/"+"247");
-                    /*
-                    //validacion iguales
-                    if(leftV==rightV){
-                        System.out.println("iguales");
-                    }
-                    else{
-                        sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");
-                    }
-                    //original --- sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");
-                    */
 
-                    sendMessage(mTextViewStrengthRight.getText().toString().replace("%",""));
+                    if (angle>240 && angle<300){
+                    System.out.println("240/"+leftV+"/"+rightV+"/0/"+"247");
+
+                    //sendMessage(mTextViewStrengthRight.getText().toString().replace("%",""));
+                    sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");}
+                    else{
+                        System.out.println("240/" + 100 + "/" + 100 + "/0/" + "247");
+                        sendMessage("240/" + 100 + "/" + 100 + "/0/" + "247");
+                    }
                 }
 
 
@@ -106,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Joystick L
-
         mTextViewAngleLeft = (TextView) findViewById(R.id.textView_angle_left);
         mTextViewStrengthLeft = (TextView) findViewById(R.id.textView_strength_left);
         mTextViewCoordinateLeft = findViewById(R.id.textView_coordinate_left);
@@ -121,17 +105,30 @@ public class MainActivity extends AppCompatActivity {
                 if(angle>=0 && angle<=180){
                     leftV = String.valueOf(strength +100);
                     mTextViewStrengthLeft.setText(strength+100 + "%");
+
+                    if(angle>60 && angle<120){
                     System.out.println("240/"+leftV+"/"+rightV+"/0/"+"247");
 
                     //sendMessage(mTextViewStrengthLeft.getText().toString().replace("%",""));
                     sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");
+                    }
+                    else {
+                        System.out.println("240/" + 100 + "/" + 100 + "/0/" + "247");
+                        sendMessage("240/" + 100 + "/" + 100 + "/0/" + "247");
+                    }
                 }
                 else{
                     leftV = String.valueOf(-strength+100);
                     mTextViewStrengthLeft.setText(-strength+100 + "%");
                     //sendMessage(mTextViewStrengthLeft.getText().toString().replace("%",""));
+                    if (angle>240 && angle<300){
                     System.out.println("240/"+leftV+"/"+rightV+"/0/"+"247");
                     sendMessage("240/"+leftV+"/"+rightV+"/0/"+"247");
+                    }
+                    else{
+                        System.out.println("240/" + 100 + "/" + 100 + "/0/" + "247");
+                        sendMessage("240/" + 100 + "/" + 100 + "/0/" + "247");
+                    }
 
 
                 }
@@ -150,43 +147,43 @@ public class MainActivity extends AppCompatActivity {
         btnOpciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent=new Intent(MainActivity.this,TCP.class);
-                Intent in=new Intent(MainActivity.this,TCP.class);
+                //Intent intent=new Intent(MainActivity.this,Option.class);
+                Intent in=new Intent(MainActivity.this,Option.class);
                 startActivity(in);
             }
         });
 
+        btnDisparador=(Button)findViewById(R.id.btnBall);
 
+        btnDisparador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+
+                    System.out.println("240/" + 200 + "/" + 200 + "/0/" + "247");
+                    sendMessage("240/" + 200 + "/" + 200 + "/0/" + "247");
+                    System.out.println("240/" + 200 + "/" + 200 + "/0/" + "247");
+                    sendMessage("240/" + 200 + "/" + 200 + "/0/" + "247");
+                    System.out.println("240/" + 200 + "/" + 200 + "/0/" + "247");
+                    sendMessage("240/" + 200 + "/" + 200 + "/0/" + "247");
+
+                    Thread.sleep(500);
+                    sendMessage("240/" + 100 + "/" + 100 + "/0/" + "247");
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
 
-
     //Metodo socket -- envia los datos de los Joystick al servidor ESP
     public void sendMessage(String dato) { //public void sendMessage(View v) {
-        MessageSender messageSender = new MessageSender();
+        MessageSocket messageSender = new MessageSocket();
         messageSender.execute(dato);
 
     }
 }
 
-
-
-
-
-
-/*
-
-private ImageButton btnDisparador;
-// Disparador -- sin accion en este momento
-        btnDisparador = (ImageButton)findViewById(R.id.btnBall);
-
-        btnDisparador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent=new Intent(MainActivity.this,TCP.class);
-                Intent in=new Intent(MainActivity.this,TCP.class);
-                startActivity(in);
-            }
-        });
-
-**/
