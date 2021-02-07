@@ -10,5 +10,7 @@ Izquierda y Derecha.
 
 ![Scheme](./img.png) 
 
+![caption](./robot.gif)
+
 # Comunidad Fun Python Ecuador
 https://github.com/FunPythonEC/Robot_soccer
